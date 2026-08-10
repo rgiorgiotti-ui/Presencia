@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Presencia.LAB — diseño y desarrollo de espacios web</title>
+<meta name="description" content="Presencia.LAB diseña y desarrolla sitios web simples y con identidad propia para emprendimientos que están empezando. Dominio gratuito para arrancar, propio cuando estés listo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10171b;
+    --ink-2:#1a2429;
+    --ink-soft:#4b5a61;
+    --paper:#f5f8f8;
+    --paper-alt:#e9eff0;
+    --line:#dbe3e3;
+    --line-dark:rgba(238,243,243,0.14);
+    --cian:#0f7c82;
+    --cian-deep:#0a5b60;
+    --cian-tint:#e4f2f2;
+    --verde:#1e9e74;
+    --plata:#94a3aa;
+    --on-dark:#eef3f3;
+    --on-dark-soft:#93a6aa;
+    --radius:2px;
+    --maxw:1180px;
+    --ease:cubic-bezier(.22,.68,0,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background-color:var(--paper);
+    background-image:radial-gradient(rgba(15,124,130,0.09) 1px, transparent 1px);
+    background-size:24px 24px;
+    color:var(--ink);
+    font-family:'Inter', system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--ink);
+  }
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--cian);
+    outline-offset:3px;
+  }
+
+  /* ---------- ORBIT SIGNATURE ---------- */
+  .orbit{
+    position:relative;
+    display:inline-block;
+  }
+  .orbit svg{display:block;}
+  .orbit-dot-anim{
+    animation: orbit-spin 9s linear infinite;
+    transform-origin: 100px 90px;
+  }
+  @keyframes orbit-spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+  }
+
+  /* small inline orbit used as list/eyebrow marker */
+  .mark{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:14px;height:14px;
+    flex-shrink:0;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(253,254,254,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+  }
+  .brand-word{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:1.15rem;
+    line-height:1;
+  }
+  .brand-word span{color:var(--cian);}
+  .brand-sub{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:0.62rem;
+    letter-spacing:0.16em;
+    color:var(--ink-soft);
+    margin-top:2px;
+  }
+  nav.links{
+    display:flex;
+    gap:36px;
+    align-items:center;
+  }
+  nav.links a{
+    text-decoration:none;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    transition:color .2s var(--ease);
+  }
+  nav.links a:hover{color:var(--cian-deep);}
+  .cta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--ink);
+    color:var(--paper) !important;
+    text-decoration:none;
+    padding:11px 20px;
+    border-radius:var(--radius);
+    font-size:0.88rem;
+    font-weight:500;
+    transition:background .2s var(--ease), transform .2s var(--ease);
+    border:none;
+    cursor:pointer;
+    font-family:'Inter',sans-serif;
+  }
+  .cta-btn:hover{background:var(--cian-deep); transform:translateY(-1px);}
+  .cta-btn.ghost{
+    background:transparent;
+    color:var(--ink) !important;
+    border:1px solid var(--line);
+  }
+  .cta-btn.ghost:hover{border-color:var(--cian); color:var(--cian-deep) !important; background:transparent;}
+
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px;
+  }
+  .menu-toggle span{
+    display:block;
+    width:22px;
+    height:2px;
+    background:var(--ink);
+    margin:5px 0;
+    transition:all .25s var(--ease);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:96px 0 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--cian-deep);
+    margin-bottom:22px;
+  }
+  h1.headline{
+    font-size:clamp(2.2rem, 4.4vw, 3.5rem);
+    line-height:1.08;
+  }
+  h1.headline .accent{color:var(--cian);}
+  .hero p.lede{
+    margin-top:22px;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    margin-top:34px;
+    flex-wrap:wrap;
+  }
+  .hero-visual{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .hero-readout{
+    position:absolute;
+    bottom:-6px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:18px;
+    color:var(--plata);
+  }
+
+  /* ---------- SECTION SHELLS ---------- */
+  section{padding:88px 0;}
+  section.alt{background:var(--paper-alt);}
+  .section-head{
+    max-width:640px;
+    margin-bottom:52px;
+  }
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{
+    font-size:clamp(1.6rem, 3vw, 2.2rem);
+    line-height:1.15;
+  }
+  .section-head p{
+    margin-top:14px;
+    color:var(--ink-soft);
+    font-size:1rem;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--paper);
+    padding:36px;
+  }
+  .service-card .mark{margin-bottom:20px;}
+  .service-card h3{
+    font-size:1.1rem;
+    margin-bottom:10px;
+  }
+  .service-card p{
+    color:var(--ink-soft);
+    font-size:0.95rem;
+    margin:0;
+  }
+
+  /* ---------- CÓMO TRABAJAMOS (dark showcase) ---------- */
+  .work-method{
+    background:var(--ink);
+    background-image:radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size:24px 24px;
+    color:var(--on-dark);
+  }
+  .work-method .section-head p{color:var(--on-dark-soft);}
+  .work-method .eyebrow{color:#4fd0d6;}
+
+  .method-row{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:56px;
+    align-items:center;
+    padding:56px 0;
+  }
+  .method-row + .method-row{border-top:1px solid var(--line-dark);}
+  .method-row.reverse{grid-template-columns:1.15fr 0.85fr;}
+  .method-row.reverse .method-visual{order:2;}
+  .method-row.reverse .method-copy{order:1;}
+
+  .method-copy .mono.step-label{color:#4fd0d6; display:block; margin-bottom:14px;}
+  .method-copy h3{font-size:1.35rem; color:var(--on-dark); margin-bottom:14px; line-height:1.2;}
+  .method-copy p{color:var(--on-dark-soft); font-size:0.97rem; margin-bottom:16px;}
+  .method-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px;}
+  .method-list li{
+    display:flex; align-items:baseline; gap:10px;
+    font-size:0.9rem; color:var(--on-dark-soft);
+  }
+  .method-list li::before{
+    content:"";
+    width:5px; height:5px; border-radius:50%;
+    background:var(--cian-tint);
+    background:#4fd0d6;
+    flex-shrink:0;
+    transform:translateY(-2px);
+  }
+
+  /* device frame shared by all three demos */
+  .device{
+    background:#fff;
+    border-radius:9px;
+    overflow:hidden;
+    box-shadow:0 24px 60px -20px rgba(0,0,0,0.55);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+  .device-bar{
+    height:28px;
+    background:#eef2f2;
+    display:flex; align-items:center; gap:6px;
+    padding:0 12px;
+    border-bottom:1px solid #e2e8e8;
+  }
+  .device-bar i{width:7px; height:7px; border-radius:50%; background:#cfd7d8; display:block;}
+  .device-screen{
+    position:relative;
+    height:220px;
+    overflow:hidden;
+    background:#fbfcfc;
+  }
+
+  /* --- Demo 1: template carousel --- */
+  .tpl-track{
+    position:absolute; top:0; left:0;
+    display:flex; gap:14px;
+    padding:22px 16px;
+    width:max-content;
+    animation:tpl-scroll 14s linear infinite;
+  }
+  @keyframes tpl-scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .tpl-card{
+    width:108px; height:150px;
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:9px;
+    display:flex; flex-direction:column; gap:7px;
+    flex-shrink:0;
+    background:#fff;
+  }
+  .tpl-card .tpl-head{height:26px; border-radius:3px;}
+  .tpl-card .tpl-line{height:5px; border-radius:2px; background:#e4e9ea;}
+  .tpl-card .tpl-line.w60{width:60%;}
+  .tpl-card .tpl-line.w80{width:80%;}
+  .tpl-card .tpl-img{flex:1; border-radius:3px; background:#eef2f2;}
+  .tpl-card.c1 .tpl-head{background:var(--cian);}
+  .tpl-card.c2 .tpl-head{background:var(--verde);}
+  .tpl-card.c3 .tpl-head{background:var(--plata);}
+  .tpl-card.c1 .tpl-img{background:var(--cian-tint);}
+  .tpl-card.c2 .tpl-img{background:#e2f5ee;}
+  .tpl-card.c3 .tpl-img{background:#eef1f2;}
+
+  /* --- Demo 2: annotate & move --- */
+  .adjust-screen{padding:26px 24px;}
+  .adjust-header{height:12px; width:40%; background:#e4e9ea; border-radius:2px; margin-bottom:16px;}
+  .adjust-hero{height:44px; background:#eef2f2; border-radius:4px; margin-bottom:14px;}
+  .adjust-line{height:6px; background:#e7ecec; border-radius:2px; margin-bottom:8px;}
+  .adjust-line.w90{width:90%;} .adjust-line.w70{width:70%;} .adjust-line.w50{width:50%;}
+  .adjust-btn{
+    position:absolute;
+    width:74px; height:26px;
+    background:var(--cian);
+    border-radius:4px;
+    top:34px; left:24px;
+    animation:btn-move 6s ease-in-out infinite;
+  }
+  @keyframes btn-move{
+    0%, 15%{top:34px; left:24px;}
+    45%, 75%{top:170px; left:150px;}
+    100%{top:34px; left:24px;}
+  }
+  .adjust-ring{
+    position:absolute;
+    width:96px; height:44px;
+    top:24px; left:14px;
+    border:2px solid #4fb8bd;
+    border-radius:22px;
+    opacity:0;
+    stroke-dasharray:6 5;
+    animation:ring-pulse 6s ease-in-out infinite;
+  }
+  @keyframes ring-pulse{
+    0%{opacity:0;}
+    4%,13%{opacity:1;}
+    18%{opacity:0;}
+    100%{opacity:0;}
+  }
+  .adjust-arrow{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    overflow:visible;
+  }
+  .adjust-arrow path{
+    fill:none;
+    stroke:#4fb8bd;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-dasharray:160;
+    stroke-dashoffset:160;
+    animation:arrow-draw 6s ease-in-out infinite;
+  }
+  @keyframes arrow-draw{
+    0%,18%{stroke-dashoffset:160; opacity:0;}
+    24%{opacity:1;}
+    40%{stroke-dashoffset:0; opacity:1;}
+    48%,100%{stroke-dashoffset:0; opacity:0;}
+  }
+
+  /* --- Demo 3: browsing & buying --- */
+  .shop-screen{padding:18px 18px 0;}
+  .shop-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;}
+  .shop-logo{width:46px; height:8px; background:#dfe6e6; border-radius:2px;}
+  .cart-wrap{position:relative; width:22px; height:22px;}
+  .cart-badge{
+    position:absolute; top:-5px; right:-5px;
+    width:14px; height:14px; border-radius:50%;
+    background:var(--verde);
+    color:#fff; font-size:8px; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+    transform:scale(0);
+    animation:badge-pop 8s ease-in-out infinite;
+  }
+  @keyframes badge-pop{
+    0%,58%{transform:scale(0);}
+    64%{transform:scale(1.3);}
+    70%,100%{transform:scale(1);}
+  }
+  .shop-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  .shop-card{border:1px solid var(--line); border-radius:4px; padding:7px; transition:transform .2s;}
+  .shop-card .shop-img{height:44px; border-radius:3px; background:#eef2f2; margin-bottom:6px;}
+  .shop-card .shop-line{height:5px; width:70%; background:#e4e9ea; border-radius:2px; margin-bottom:4px;}
+  .shop-card .shop-price{height:5px; width:35%; background:var(--cian-tint); border-radius:2px;}
+  .shop-card.target{animation:card-hover 8s ease-in-out infinite;}
+  @keyframes card-hover{
+    0%,20%{transform:scale(1); border-color:var(--line);}
+    30%,45%{transform:scale(1.05); border-color:var(--cian);}
+    55%,100%{transform:scale(1); border-color:var(--line);}
+  }
+  .buy-btn{
+    margin:12px 0 0; height:24px; border-radius:4px;
+    background:var(--ink); color:#fff;
+    font-family:'JetBrains Mono',monospace; font-size:8px;
+    text-transform:uppercase; letter-spacing:.06em;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .buy-btn .ripple{
+    position:absolute; inset:0; border-radius:4px;
+    background:var(--cian);
+    opacity:0; transform:scale(1);
+  }
+  .buy-btn.clicked{animation:btn-click 8s ease-in-out infinite;}
+  .buy-btn.clicked .ripple{animation:btn-ripple 8s ease-in-out infinite;}
+  @keyframes btn-click{
+    0%,45%{transform:scale(1);}
+    50%{transform:scale(0.94);}
+    56%,100%{transform:scale(1);}
+  }
+  @keyframes btn-ripple{
+    0%,44%{opacity:0; transform:scale(1);}
+    50%{opacity:0.55; transform:scale(1);}
+    62%{opacity:0; transform:scale(1.6);}
+    100%{opacity:0;}
+  }
+  .cursor-dot{
+    position:absolute;
+    width:0; height:0;
+    z-index:5;
+    animation:cursor-path 8s ease-in-out infinite;
+  }
+  .cursor-dot svg{display:block; filter:drop-shadow(0 2px 3px rgba(0,0,0,0.35));}
+  @keyframes cursor-path{
+    0%{     top:14px;  left:170px; }
+    20%{    top:70px;  left:80px;  }
+    32%{    top:70px;  left:80px;  }
+    48%{    top:150px; left:60px;  }
+    56%{    top:150px; left:60px;  }
+    70%{    top:150px; left:60px;  }
+    82%{    top:20px;  left:190px; }
+    100%{   top:14px;  left:170px; }
+  }
+  .toast{
+    position:absolute; bottom:10px; left:50%;
+    transform:translateX(-50%) translateY(8px);
+    background:var(--ink); color:#fff;
+    font-family:'JetBrains Mono',monospace; font-size:7.5px;
+    letter-spacing:.05em; text-transform:uppercase;
+    padding:6px 10px; border-radius:3px;
+    opacity:0;
+    animation:toast-show 8s ease-in-out infinite;
+    white-space:nowrap;
+  }
+  @keyframes toast-show{
+    0%,58%{opacity:0; transform:translateX(-50%) translateY(8px);}
+    66%,86%{opacity:1; transform:translateX(-50%) translateY(0);}
+    96%,100%{opacity:0; transform:translateX(-50%) translateY(8px);}
+  }
+
+  /* ---------- PORTFOLIO ---------- */
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+  }
+  .work-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    text-decoration:none;
+    display:block;
+    background:var(--paper);
+    transition:border-color .2s var(--ease), transform .2s var(--ease);
+  }
+  .work-card:hover{border-color:var(--cian); transform:translateY(-3px);}
+  .work-thumb{
+    height:150px;
+    background:linear-gradient(135deg, var(--ink) 0%, #23343a 100%);
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    padding:16px;
+    overflow:hidden;
+  }
+  .work-thumb .mono{color:rgba(255,255,255,0.55);}
+  .work-thumb.plata-bg{background:linear-gradient(135deg,#5c6b72 0%, #8c9aa0 100%);}
+  .work-thumb.verde-bg{background:linear-gradient(135deg,#0d3d30 0%, #1e9e74 100%);}
+  .work-thumb.soon-bg{
+    background:var(--paper-alt);
+    border-bottom:1px dashed var(--line);
+  }
+  .work-thumb.soon-bg .mono{color:var(--plata);}
+  .work-body{padding:22px 24px 26px;}
+  .work-body .tag{
+    color:var(--cian-deep);
+    margin-bottom:8px;
+    display:block;
+  }
+  .work-body h3{font-size:1.08rem; margin-bottom:8px;}
+  .work-body p{color:var(--ink-soft); font-size:0.92rem; margin:0;}
+  .work-card.soon{cursor:default;}
+  .work-card.soon:hover{border-color:var(--line); transform:none;}
+
+  /* ---------- VALUE PROPS ---------- */
+  .values{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:28px;
+  }
+  .value-item .mark{margin-bottom:16px;}
+  .value-item h3{font-size:0.98rem; margin-bottom:8px;}
+  .value-item p{color:var(--ink-soft); font-size:0.88rem; margin:0;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+  .contact-copy h2{font-size:clamp(1.6rem, 3vw, 2.1rem); line-height:1.15;}
+  .contact-copy p{color:var(--ink-soft); margin-top:16px; max-width:42ch;}
+  .contact-channels{margin-top:32px; display:flex; flex-direction:column; gap:16px;}
+  .channel{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink);}
+  .channel .mono{color:var(--plata); min-width:88px;}
+  .channel strong{font-weight:500;}
+  .channel:hover strong{color:var(--cian-deep);}
+
+  form{display:flex; flex-direction:column; gap:16px;}
+  .field label{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+  }
+  .field input, .field textarea{
+    width:100%;
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:13px 14px;
+    font-family:'Inter',sans-serif;
+    font-size:0.95rem;
+    border-radius:var(--radius);
+    color:var(--ink);
+    transition:border-color .2s var(--ease);
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none;
+    border-color:var(--cian);
+  }
+  .field textarea{resize:vertical; min-height:110px;}
+  form .cta-btn{align-self:flex-start; margin-top:6px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:36px 0;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .footer-row .mono{color:var(--plata);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 880px){
+    nav.links{
+      position:fixed;
+      top:65px; left:0; right:0;
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:24px 32px 32px;
+      gap:22px;
+      transform:translateY(-140%);
+      transition:transform .3s var(--ease);
+    }
+    nav.links.open{transform:translateY(0);}
+    .menu-toggle{display:block;}
+    .hero-grid{grid-template-columns:1fr; text-align:left;}
+    .hero-visual{order:-1; margin-bottom:12px; transform:scale(0.72); transform-origin:left center;}
+    .services-grid{grid-template-columns:1fr;}
+    .method-row, .method-row.reverse{
+      grid-template-columns:1fr;
+      gap:26px;
+      padding:40px 0;
+    }
+    .method-row.reverse .method-visual{order:1;}
+    .method-row.reverse .method-copy{order:2;}
+    .method-row .method-visual{order:1;}
+    .method-row .method-copy{order:2;}
+    .device-screen{height:190px;}
+    .work-grid{grid-template-columns:1fr;}
+    .values{grid-template-columns:repeat(2,1fr); row-gap:36px;}
+    .contact-wrap{grid-template-columns:1fr; gap:44px;}
+    .wrap{padding:0 22px;}
+    section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <svg width="34" height="32" viewBox="0 0 100 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="50" cy="48" r="34" stroke="var(--line)" stroke-width="1.5"/>
+        <circle cx="50" cy="48" r="15" fill="var(--cian)"/>
+        <g class="orbit-dot-anim" style="transform-origin:50px 48px;">
+          <circle cx="50" cy="14" r="3.4" fill="var(--cian)"/>
+        </g>
+      </svg>
+      <span>
+        <span class="brand-word">Presencia<span>.</span></span><br>
+        <span class="brand-sub">LAB</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="links" id="navLinks">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#contacto" class="cta-btn">Hablemos →</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow mono">
+          <span class="mark">
+            <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg>
+          </span>
+          diseño y desarrollo de espacios web
+        </div>
+        <h1 class="headline">Tu emprendimiento merece un lugar <span class="accent">propio</span> en internet.</h1>
+        <p class="lede">Diseñamos y armamos sitios simples, rápidos y con identidad — pensados para negocios que están arrancando y no necesitan (todavía) gastar de más. Empezás con dominio gratuito; migrás cuando estés listo.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="cta-btn">Quiero mi sitio →</a>
+          <a href="#trabajos" class="cta-btn ghost">Ver trabajos</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <svg width="300" height="280" viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Órbita animada, símbolo de Presencia.Lab">
+          <circle cx="150" cy="130" r="95" stroke="var(--line)" stroke-width="1.5" fill="none"/>
+          <circle cx="150" cy="130" r="42" fill="var(--cian)"/>
+          <g class="orbit-dot-anim" style="transform-origin:150px 130px; animation-duration:14s;">
+            <circle cx="150" cy="35" r="7" fill="var(--cian)"/>
+          </g>
+          <g class="orbit-dot-anim" style="transform-origin:150px 130px; animation-duration:22s; animation-direction:reverse;">
+            <circle cx="72" cy="188" r="4.5" fill="var(--verde)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow mono">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          qué hacemos
+        </div>
+        <h2>Un espacio en la web, a tu medida.</h2>
+        <p>No vendemos plantillas genéricas. Cada sitio se piensa según lo que tu negocio necesita mostrar hoy — y puede crecer con vos.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          <h3>Sitios para emprendimientos</h3>
+          <p>Landing pages y sitios de un producto o servicio, listos para compartir en redes y WhatsApp. Arrancás con dominio gratuito.</p>
+        </div>
+        <div class="service-card">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--verde)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--verde)"/></svg></span>
+          <h3>Portfolios y sitios personales</h3>
+          <p>Para profesionales, coaches y freelancers que necesitan un espacio propio más allá de un CV o un perfil de red social.</p>
+        </div>
+        <div class="service-card">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--plata)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--plata)"/></svg></span>
+          <h3>Herramientas a medida</h3>
+          <p>Calendarios, formularios y mini aplicaciones simples cuando tu negocio necesita algo más que una página estática.</p>
+        </div>
+        <div class="service-card">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          <h3>Migración y mantenimiento</h3>
+          <p>Cuando estés listo, pasamos tu sitio a un dominio propio. Y si lo necesitás, lo mantenemos actualizado con el tiempo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO TRABAJAMOS -->
+  <section class="work-method" id="proceso">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow mono">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="#4fd0d6" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="#4fd0d6"/></svg></span>
+          cómo trabajamos
+        </div>
+        <h2>De la idea al sitio que tu cliente usa.</h2>
+        <p>Tres momentos reales del proceso — no una lista de pasos genéricos.</p>
+      </div>
+
+      <!-- ROW 1: templates pasando -->
+      <div class="method-row">
+        <div class="method-copy">
+          <span class="mono step-label">órbita 01 — diagnóstico y dirección</span>
+          <h3>Buscamos el estilo que va con tu negocio.</h3>
+          <p>Antes de escribir una línea de código, recorremos referencias y armamos 2 o 3 direcciones posibles — no partimos de una plantilla única para todos los clientes.</p>
+          <ul class="method-list">
+            <li>Referencias según tu rubro y tu público</li>
+            <li>Paleta y tipografía propuestas desde el día uno</li>
+            <li>Vos elegís la dirección antes de avanzar</li>
+          </ul>
+        </div>
+        <div class="method-visual">
+          <div class="device">
+            <div class="device-bar"><i></i><i></i><i></i></div>
+            <div class="device-screen">
+              <div class="tpl-track">
+                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img"></div></div>
+                <div class="tpl-card c2"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img"></div></div>
+                <div class="tpl-card c3"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img"></div></div>
+                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img"></div></div>
+                <!-- duplicated set for seamless loop -->
+                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img"></div></div>
+                <div class="tpl-card c2"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img"></div></div>
+                <div class="tpl-card c3"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img"></div></div>
+                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2: ajustar y mover elementos -->
+      <div class="method-row reverse">
+        <div class="method-copy">
+          <span class="mono step-label">órbita 02 — diseño y desarrollo</span>
+          <h3>Ajustamos cada detalle hasta que cierre.</h3>
+          <p>Un botón que sube, un bloque que se achica, un texto que se acorta. Vamos afinando en conjunto hasta que el sitio se sienta tuyo, no de un catálogo.</p>
+          <ul class="method-list">
+            <li>Revisiones rápidas por WhatsApp, sin reuniones eternas</li>
+            <li>Cambios de estructura, no solo de color</li>
+            <li>Optimizado para que cargue rápido en el celular</li>
+          </ul>
+        </div>
+        <div class="method-visual">
+          <div class="device">
+            <div class="device-bar"><i></i><i></i><i></i></div>
+            <div class="device-screen adjust-screen">
+              <div class="adjust-header"></div>
+              <div class="adjust-hero"></div>
+              <div class="adjust-line w90"></div>
+              <div class="adjust-line w70"></div>
+              <div class="adjust-line w50"></div>
+              <div class="adjust-ring"></div>
+              <svg class="adjust-arrow" viewBox="0 0 300 220" preserveAspectRatio="none">
+                <path d="M 95 55 C 130 90, 130 140, 155 175" marker-end="url(#arrowhead)"/>
+                <defs>
+                  <marker id="arrowhead" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                    <polygon points="0 0, 7 3.5, 0 7" fill="#4fb8bd"/>
+                  </marker>
+                </defs>
+              </svg>
+              <div class="adjust-btn"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 3: cliente navegando y comprando -->
+      <div class="method-row">
+        <div class="method-copy">
+          <span class="mono step-label">órbita 03 — presencia activa</span>
+          <h3>Tu cliente entra, encuentra y compra.</h3>
+          <p>El objetivo nunca es "tener un sitio lindo" — es que la persona del otro lado encuentre lo que busca y haga clic en comprar o escribirte, sin fricción.</p>
+          <ul class="method-list">
+            <li>Botones de compra y contacto siempre a la vista</li>
+            <li>Pensado para que se navegue con el pulgar</li>
+            <li>Dominio gratuito al lanzar, propio cuando quieras</li>
+          </ul>
+        </div>
+        <div class="method-visual">
+          <div class="device">
+            <div class="device-bar"><i></i><i></i><i></i></div>
+            <div class="device-screen shop-screen">
+              <div class="shop-top">
+                <div class="shop-logo"></div>
+                <div class="cart-wrap">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 3h2l1.6 9.2a1.5 1.5 0 0 0 1.5 1.3h6a1.5 1.5 0 0 0 1.5-1.2L16 6H5" stroke="#33454a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="16" r="1" fill="#33454a"/><circle cx="13.5" cy="16" r="1" fill="#33454a"/></svg>
+                  <span class="cart-badge">1</span>
+                </div>
+              </div>
+              <div class="shop-grid">
+                <div class="shop-card target"><div class="shop-img"></div><div class="shop-line"></div><div class="shop-price"></div><div class="buy-btn clicked">comprar<span class="ripple"></span></div></div>
+                <div class="shop-card"><div class="shop-img"></div><div class="shop-line"></div><div class="shop-price"></div></div>
+                <div class="shop-card"><div class="shop-img"></div><div class="shop-line"></div><div class="shop-price"></div></div>
+              </div>
+              <div class="cursor-dot">
+                <svg width="16" height="18" viewBox="0 0 16 18"><path d="M1 1l13 6.5-5.5 1.5L7 15z" fill="#10171b" stroke="#fff" stroke-width="1"/></svg>
+              </div>
+              <div class="toast">✓ pedido confirmado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRABAJOS -->
+  <section id="trabajos">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow mono">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          trabajos
+        </div>
+        <h2>Algunas presencias que ya construimos.</h2>
+        <p>Cada proyecto parte de cero — el estilo lo define el negocio, no una plantilla.</p>
+      </div>
+
+      <div class="work-grid">
+        <a href="https://renderazo.netlify.app/" target="_blank" rel="noopener" class="work-card">
+          <div class="work-thumb">
+            <span class="mono">X:00.0 Y:00.0 Z:00.0</span>
+          </div>
+          <div class="work-body">
+            <span class="tag mono">estudio de renders</span>
+            <h3>RenderAzo</h3>
+            <p>Sitio para un estudio de renderizado arquitectónico: portfolio, videos y cotizador de proyectos.</p>
+          </div>
+        </a>
+
+        <a href="https://rominag-phi-tawny-27.vercel.app/" target="_blank" rel="noopener" class="work-card">
+          <div class="work-thumb plata-bg">
+            <span class="mono">la persona detrás del CV</span>
+          </div>
+          <div class="work-body">
+            <span class="tag mono">portfolio personal</span>
+            <h3>Romina Giorgiotti</h3>
+            <p>Sitio narrativo para una profesional multidisciplinaria — trayectoria, viajes y proyectos en curso.</p>
+          </div>
+        </a>
+
+        <a href="https://rgiorgiotti-ui.github.io/coaching-calendar/" target="_blank" rel="noopener" class="work-card">
+          <div class="work-thumb verde-bg">
+            <span class="mono">coachingsync®</span>
+          </div>
+          <div class="work-body">
+            <span class="tag mono">herramienta a medida</span>
+            <h3>CoachingSync</h3>
+            <p>Calendario colaborativo para agendar sesiones de coaching y generar videollamadas al instante.</p>
+          </div>
+        </a>
+
+        <div class="work-card soon">
+          <div class="work-thumb soon-bg">
+            <span class="mono">en propuesta</span>
+          </div>
+          <div class="work-body">
+            <span class="tag mono">próximo trabajo</span>
+            <h3>Estética — por confirmar</h3>
+            <p>Propuesta y templates ya listos para un espacio de estética. A la espera de confirmación del cliente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow mono">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          por qué presencia.lab
+        </div>
+        <h2>Pensado para el que está empezando.</h2>
+      </div>
+
+      <div class="values">
+        <div class="value-item">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          <h3>Dominio gratuito para arrancar</h3>
+          <p>No necesitás invertir en un dominio propio desde el día uno.</p>
+        </div>
+        <div class="value-item">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--verde)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--verde)"/></svg></span>
+          <h3>Precios pensados para emprendimientos</h3>
+          <p>Presupuestos acordes a un negocio que recién empieza a crecer.</p>
+        </div>
+        <div class="value-item">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--plata)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--plata)"/></svg></span>
+          <h3>Atención directa, sin intermediarios</h3>
+          <p>Hablás con la persona que diseña y construye tu sitio, siempre.</p>
+        </div>
+        <div class="value-item">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          <h3>Identidad propia</h3>
+          <p>Cada sitio se diseña para tu negocio — no salimos de un catálogo de plantillas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="wrap contact-wrap">
+      <div class="contact-copy">
+        <div class="eyebrow mono">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          contacto
+        </div>
+        <h2>Hablemos de tu proyecto.</h2>
+        <p>Contame en qué andás y en qué etapa está tu negocio. En un par de días te paso una propuesta simple, sin letra chica.</p>
+
+        <div class="contact-channels">
+          <a href="https://wa.me/5490000000000" class="channel" target="_blank" rel="noopener">
+            <span class="mono">whatsapp</span>
+            <strong>+54 9 00 0000&#8209;0000</strong>
+          </a>
+          <a href="mailto:hola@presencialab.com" class="channel">
+            <span class="mono">email</span>
+            <strong>hola@presencialab.com</strong>
+          </a>
+          <div class="channel">
+            <span class="mono">ubicación</span>
+            <strong>Argentina — trabajo para todo el país</strong>
+          </div>
+        </div>
+      </div>
+
+      <form id="contactForm">
+        <div class="field">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="message">Contame sobre tu proyecto</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="cta-btn">Enviar consulta →</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span class="mono">© Presencia.Lab — 2026</span>
+    <span class="mono">diseño y desarrollo de proyectos</span>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const btn = this.querySelector('button[type="submit"]');
+    btn.textContent = '¡Gracias' + (name ? ', ' + name.split(' ')[0] : '') + '! Te contactamos pronto.';
+    btn.style.background = '#1e9e74';
+    this.querySelectorAll('input, textarea').forEach(el => el.disabled = true);
+  });
+</script>
+
+</body>
+</html>
