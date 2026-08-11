@@ -243,6 +243,12 @@
   }
 
   /* ---------- SECTION SHELLS ---------- */
+  .hero-divider{
+    display:flex;
+    justify-content:center;
+    padding:6px 0;
+    background:var(--paper);
+  }
   section{padding:60px 0;}
   section.alt{background:var(--paper-alt);}
   .section-head{
@@ -263,58 +269,64 @@
   /* ---------- SERVICES ---------- */
   .services-grid{
     display:grid;
-    grid-template-columns:repeat(2, 1fr);
+    grid-template-columns:repeat(4, 1fr);
     gap:1px;
     background:var(--line);
     border:1px solid var(--line);
   }
   .service-card{
     background:var(--paper);
-    padding:36px;
+    padding:22px 20px;
     position:relative;
     overflow:hidden;
   }
-  .service-card .mark{margin-bottom:20px;}
+  .service-card .mark{margin-bottom:14px;}
   .service-card h3{
-    font-size:1.1rem;
-    margin-bottom:10px;
-    max-width:80%;
+    font-size:0.98rem;
+    margin-bottom:8px;
+    max-width:100%;
   }
   .service-card p{
     color:var(--ink-soft);
-    font-size:0.95rem;
+    font-size:0.82rem;
     margin:0;
-    max-width:88%;
+    max-width:100%;
   }
-  .svc-vis{position:absolute; top:28px; right:28px; display:flex; align-items:center;}
+  .svc-vis{position:static; display:flex; align-items:center; margin-bottom:16px; min-height:34px;}
 
-  @keyframes wa-pop{0%,50%{transform:scale(0.75);opacity:0.5}70%{transform:scale(1.08);opacity:1}85%,100%{transform:scale(1);opacity:1}}
-  .svc-chat{animation:wa-pop 2.4s ease-in-out infinite;}
-  .svc-phone{background:#fff; border:1px solid var(--line); border-radius:4px; padding:4px 8px; font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:var(--ink); margin-left:6px;}
+  @keyframes wa-pop{0%,50%{transform:scale(0.85);opacity:0.6}70%{transform:scale(1.08);opacity:1}85%,100%{transform:scale(1);opacity:1}}
+  .svc-chat-bg{width:30px; height:30px; border-radius:50%; background:#e2f5ee; display:flex; align-items:center; justify-content:center; flex-shrink:0; animation:wa-pop 2.4s ease-in-out infinite;}
+  .svc-phone{background:#fff; border:1px solid var(--line); border-radius:4px; padding:4px 7px; font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--ink); margin-left:7px; white-space:nowrap; overflow:hidden; width:fit-content;}
+  @keyframes phone-reveal{0%,4%{width:0;}42%,58%{width:100%;}96%,100%{width:100%;}}
+  .svc-phone span{display:inline-block; overflow:hidden; white-space:nowrap; width:0; vertical-align:bottom; animation:phone-reveal 4.2s infinite; border-right:1.5px solid var(--verde);}
 
-  .svc-badge{width:34px; height:34px; border-radius:5px; background:var(--cian-tint); display:flex; align-items:center; justify-content:center; margin-right:6px;}
-  .svc-square{width:40px; height:40px; border-radius:6px; background:var(--paper-alt); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
+  @keyframes badge-in{0%,4%{opacity:0; transform:translateY(4px);}14%,100%{opacity:1; transform:translateY(0);}}
+  @keyframes arrow-in{0%,14%{opacity:0;}24%,100%{opacity:1;}}
+  @keyframes person-in{0%,24%{opacity:0; transform:scale(0.85);}38%,100%{opacity:1; transform:scale(1);}}
+  .svc-badge{width:30px; height:30px; border-radius:5px; background:var(--cian-tint); display:flex; align-items:center; justify-content:center; margin-right:6px; flex-shrink:0; animation:badge-in 4s infinite;}
+  .svc-arrow{margin-right:6px; flex-shrink:0; animation:arrow-in 4s infinite;}
+  .svc-square{width:34px; height:34px; border-radius:6px; background:var(--paper-alt); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; flex-shrink:0; animation:person-in 4s infinite;}
 
   @keyframes tool-in{0%,6%{opacity:0; transform:translateY(5px);}16%,100%{opacity:1; transform:translateY(0);}}
-  @keyframes tool-in2{0%,16%{opacity:0; transform:translateY(5px);}26%,100%{opacity:1; transform:translateY(0);}}
   @keyframes tool-form{0%,16%{opacity:0; transform:translateY(5px);}26%,64%{opacity:1; transform:translateY(0);}78%,100%{opacity:0.3; transform:translateY(0);}}
   @keyframes tool-in3{0%,26%{opacity:0; transform:translateY(5px);}36%,100%{opacity:1; transform:translateY(0);}}
   @keyframes tool-in4{0%,36%{opacity:0; transform:translateY(5px);}46%,100%{opacity:1; transform:translateY(0);}}
   @keyframes tool-x{0%,50%{stroke-dashoffset:30;}64%,100%{stroke-dashoffset:0;}}
   @keyframes tool-check{0%,68%{opacity:0; transform:translate(-50%,-50%) scale(0.5);}82%,100%{opacity:1; transform:translate(-50%,-50%) scale(1);}}
+  .tool-row{display:flex; align-items:flex-start; gap:8px;}
   .tool-icon{position:relative; display:flex; flex-direction:column; align-items:center;}
   .tool-icon:nth-child(1){animation:tool-in 3.8s infinite;}
   .tool-icon:nth-child(2){animation:tool-form 3.8s infinite;}
   .tool-icon:nth-child(3){animation:tool-in3 3.8s infinite;}
   .tool-icon:nth-child(4){animation:tool-in4 3.8s infinite;}
   .tool-x line{stroke:#d85a30; stroke-width:2; stroke-linecap:round; stroke-dasharray:30; animation:tool-x 3.8s infinite;}
-  .tool-check{position:absolute; top:50%; left:50%; width:20px; height:20px; border-radius:50%; background:var(--verde); opacity:0; transform:translate(-50%,-50%) scale(0.5); animation:tool-check 3.8s infinite; display:flex; align-items:center; justify-content:center;}
+  .tool-check{position:absolute; top:50%; left:50%; width:16px; height:16px; border-radius:50%; background:var(--verde); opacity:0; transform:translate(-50%,-50%) scale(0.5); animation:tool-check 3.8s infinite; display:flex; align-items:center; justify-content:center;}
 
   @keyframes dom-reveal{0%,4%{width:0;}42%,58%{width:100%;}96%,100%{width:100%;}}
   @keyframes dom-bar{0%,48%{width:0;}72%,100%{width:100%;}}
   @keyframes dom-app-out{0%,68%{opacity:1;}74%,100%{opacity:0;}}
   @keyframes dom-com-in{0%,68%{opacity:0;}74%,100%{opacity:1;}}
-  .dom-box{font-family:'JetBrains Mono',monospace; font-size:0.62rem; background:#fff; border:1px solid var(--line); border-radius:4px; padding:4px 7px; white-space:nowrap; overflow:hidden; width:fit-content; color:var(--ink);}
+  .dom-box{font-family:'JetBrains Mono',monospace; font-size:0.6rem; background:#fff; border:1px solid var(--line); border-radius:4px; padding:4px 7px; white-space:nowrap; overflow:hidden; width:fit-content; color:var(--ink);}
   .dom-reveal{display:inline-block; overflow:hidden; white-space:nowrap; width:0; vertical-align:bottom; animation:dom-reveal 4.2s infinite; border-right:1.5px solid var(--cian);}
   .dom-suffix{position:relative; display:inline-block;}
   .dom-suffix .app{animation:dom-app-out 4.2s infinite;}
@@ -567,8 +579,8 @@
   /* ---------- PORTFOLIO ---------- */
   .work-grid{
     display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:24px;
+    grid-template-columns:repeat(4, 1fr);
+    gap:16px;
   }
   .work-card{
     border:1px solid var(--line);
@@ -581,15 +593,15 @@
   }
   .work-card:hover{border-color:var(--cian); transform:translateY(-3px);}
   .work-thumb{
-    height:150px;
+    height:110px;
     background:linear-gradient(135deg, var(--ink) 0%, #23343a 100%);
     position:relative;
     display:flex;
     align-items:flex-end;
-    padding:16px;
+    padding:10px 12px;
     overflow:hidden;
   }
-  .work-thumb .mono{color:rgba(255,255,255,0.55);}
+  .work-thumb .mono{color:rgba(255,255,255,0.55); font-size:0.6rem;}
   .work-thumb.plata-bg{background:linear-gradient(135deg,#5c6b72 0%, #8c9aa0 100%);}
   .work-thumb.verde-bg{background:linear-gradient(135deg,#0d3d30 0%, #1e9e74 100%);}
   .work-thumb.soon-bg{
@@ -597,14 +609,14 @@
     border-bottom:1px dashed var(--line);
   }
   .work-thumb.soon-bg .mono{color:var(--plata);}
-  .work-body{padding:22px 24px 26px;}
+  .work-body{padding:16px 16px 18px;}
   .work-body .tag{
     color:var(--cian-deep);
-    margin-bottom:8px;
+    margin-bottom:6px;
     display:block;
   }
-  .work-body h3{font-size:1.08rem; margin-bottom:8px;}
-  .work-body p{color:var(--ink-soft); font-size:0.92rem; margin:0;}
+  .work-body h3{font-size:0.95rem; margin-bottom:6px;}
+  .work-body p{color:var(--ink-soft); font-size:0.78rem; margin:0; line-height:1.5;}
   .work-card.soon{cursor:default;}
   .work-card.soon:hover{border-color:var(--line); transform:none;}
 
@@ -677,6 +689,10 @@
   .footer-row .mono{color:var(--plata);}
 
   /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1040px){
+    .services-grid{grid-template-columns:repeat(2, 1fr);}
+    .work-grid{grid-template-columns:repeat(2, 1fr);}
+  }
   @media (max-width: 880px){
     nav.links{
       position:fixed;
@@ -781,8 +797,21 @@
     </div>
   </section>
 
+  <!-- TRANSICIÓN -->
+  <div class="hero-divider">
+    <svg width="220" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="0" y1="20" x2="88" y2="20" stroke="var(--line)" stroke-width="1"/>
+      <line x1="132" y1="20" x2="220" y2="20" stroke="var(--line)" stroke-width="1"/>
+      <circle cx="110" cy="20" r="14" stroke="var(--line)" stroke-width="1.3" fill="none"/>
+      <circle cx="110" cy="20" r="5" fill="var(--cian)"/>
+      <g class="orbit-dot-anim" style="transform-origin:110px 20px; animation-duration:7s;">
+        <circle cx="110" cy="6" r="2.4" fill="var(--cian)"/>
+      </g>
+    </svg>
+  </div>
+
   <!-- SERVICIOS -->
-  <section id="servicios">
+  <section id="servicios" class="alt">
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow mono">
@@ -796,8 +825,8 @@
       <div class="services-grid">
         <div class="service-card">
           <div class="svc-vis">
-            <svg class="svc-chat" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2a8 8 0 0 0-7 12l-1 4 4-1a8 8 0 1 0 4-15z" fill="none" stroke="var(--verde)" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            <span class="svc-phone">+54 9 11 2345‑6789</span>
+            <div class="svc-chat-bg"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 1.5A6.5 6.5 0 0 0 2.3 11l-.8 3 3.1-.8A6.5 6.5 0 1 0 8 1.5z" fill="none" stroke="#0d3d30" stroke-width="1.4" stroke-linejoin="round"/><circle cx="5.3" cy="8" r="0.9" fill="#0d3d30"/><circle cx="8" cy="8" r="0.9" fill="#0d3d30"/><circle cx="10.7" cy="8" r="0.9" fill="#0d3d30"/></svg></div>
+            <span class="svc-phone"><span>+54 9 11 2345‑6789</span></span>
           </div>
           <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
           <h3>Sitios para emprendimientos</h3>
@@ -805,31 +834,32 @@
         </div>
         <div class="service-card">
           <div class="svc-vis">
-            <div class="svc-badge"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="5" r="2.6" fill="none" stroke="var(--cian-deep)" stroke-width="1.4"/><path d="M2.5 14c0-3 2.5-5 5.5-5s5.5 2 5.5 5" fill="none" stroke="var(--cian-deep)" stroke-width="1.4" stroke-linecap="round"/></svg></div>
-            <svg width="12" height="12" viewBox="0 0 12 12" style="margin-right:6px;"><path d="M2 6h8M7 3l3 3-3 3" fill="none" stroke="var(--plata)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div class="svc-square"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.6" fill="none" stroke="var(--plata)" stroke-width="1.5"/><path d="M4 20c0-4 3.6-6.8 8-6.8s8 2.8 8 6.8" fill="none" stroke="var(--plata)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <div class="svc-badge"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.3" fill="none" stroke="var(--cian-deep)" stroke-width="1.3"/><circle cx="6" cy="7" r="1.4" fill="none" stroke="var(--cian-deep)" stroke-width="1.1"/><path d="M3.5 11c.4-1.4 1.4-2 2.5-2s2.1.6 2.5 2M9.5 6h3M9.5 8.5h3" stroke="var(--cian-deep)" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+            <svg class="svc-arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M2 6h8M7 3l3 3-3 3" fill="none" stroke="var(--plata)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="svc-square"><svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="8" r="3.2" fill="none" stroke="var(--plata)" stroke-width="1.5"/><path d="M3.5 17c0-3.6 3-6 6.5-6s6.5 2.4 6.5 6" fill="none" stroke="var(--plata)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
           </div>
           <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--verde)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--verde)"/></svg></span>
           <h3>Portfolios y sitios personales</h3>
           <p>Para profesionales, coaches y freelancers que necesitan un espacio propio más allá de un CV o un perfil de red social.</p>
         </div>
         <div class="service-card">
-          <div class="svc-vis" style="gap:9px; transform:scale(0.8); transform-origin:top right;">
-            <div class="tool-icon"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="13" rx="1.5" fill="none" stroke="var(--cian)" stroke-width="1.4"/><path d="M3 8h14M6.5 2.5v3M13.5 2.5v3" stroke="var(--cian)" stroke-width="1.4" stroke-linecap="round"/></svg></div>
-            <div class="tool-icon"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="1.5" fill="none" stroke="var(--verde)" stroke-width="1.4"/><path d="M6 8h8M6 11h8M6 14h5" stroke="var(--verde)" stroke-width="1.3" stroke-linecap="round"/></svg>
-              <svg class="tool-x" width="22" height="22" viewBox="0 0 22 22" style="position:absolute; top:-1px; left:-1px;"><line x1="4" y1="4" x2="18" y2="18"/><line x1="18" y1="4" x2="4" y2="18"/></svg>
+          <div class="svc-vis tool-row">
+            <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="13" rx="1.5" fill="none" stroke="var(--cian)" stroke-width="1.4"/><path d="M3 8h14M6.5 2.5v3M13.5 2.5v3" stroke="var(--cian)" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+            <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="1.5" fill="none" stroke="var(--verde)" stroke-width="1.4"/><path d="M6 8h8M6 11h8M6 14h5" stroke="var(--verde)" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <svg class="tool-x" width="20" height="20" viewBox="0 0 20 20" style="position:absolute; top:-1px; left:-1px;"><line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/></svg>
+              <div class="tool-check"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2.5 6.5l2.5 2.5 4.5-5.5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             </div>
-            <div class="tool-icon"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="2" y="4" width="16" height="12" rx="1.5" fill="none" stroke="var(--cian)" stroke-width="1.4"/><circle cx="7" cy="9" r="1.6" fill="none" stroke="var(--cian)" stroke-width="1.3"/><path d="M2 15l4.5-4 3 2.5L14 9l4 5" fill="none" stroke="var(--cian)" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
-            <div class="tool-icon"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="var(--plata)" stroke-width="1.4"/><path d="M2 5l8 6 8-6" fill="none" stroke="var(--plata)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div class="tool-check"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2.5 6.5l2.5 2.5 4.5-5.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 20 20"><rect x="2" y="4" width="16" height="12" rx="1.5" fill="none" stroke="var(--cian)" stroke-width="1.4"/><circle cx="7" cy="9" r="1.6" fill="none" stroke="var(--cian)" stroke-width="1.3"/><path d="M2 15l4.5-4 3 2.5L14 9l4 5" fill="none" stroke="var(--cian)" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+            <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 20 20"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="var(--plata)" stroke-width="1.4"/><path d="M2 5l8 6 8-6" fill="none" stroke="var(--plata)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           </div>
           <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--plata)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--plata)"/></svg></span>
           <h3>Herramientas a medida</h3>
           <p>Calendarios, formularios y mini aplicaciones simples cuando tu negocio necesita algo más que una página estática.</p>
         </div>
         <div class="service-card">
-          <div class="svc-vis" style="flex-direction:column; align-items:flex-end;">
+          <div class="svc-vis" style="flex-direction:column; align-items:flex-start;">
             <div class="dom-box"><span class="dom-reveal">tunegocio<span class="dom-suffix"><span class="app">.app</span><span class="com">.com</span></span></span></div>
+
             <div class="dom-bar"><div class="dom-bar-fill"></div></div>
           </div>
           <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
@@ -962,6 +992,42 @@
     </div>
   </section>
 
+  <!-- VALORES -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow mono">
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          por qué presencia.lab
+        </div>
+        <h2>Pensado para el que está empezando.</h2>
+      </div>
+
+      <div class="values">
+        <div class="value-item">
+          <span class="value-badge" style="background:var(--cian-tint);"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="none" stroke="var(--cian-deep)" stroke-width="1.4"/><ellipse cx="9" cy="9" rx="3" ry="7" fill="none" stroke="var(--cian-deep)" stroke-width="1.2"/><path d="M2 9h14" stroke="var(--cian-deep)" stroke-width="1.2"/></svg></span>
+          <h3>Dominio gratuito para arrancar</h3>
+          <p>No necesitás invertir en un dominio propio desde el día uno.</p>
+        </div>
+        <div class="value-item">
+          <span class="value-badge" style="background:#e2f5ee;"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="none" stroke="#0d3d30" stroke-width="1.4"/><path d="M9 5v8M11.2 6.8c0-1-1-1.5-2.2-1.5s-2.2 .6-2.2 1.6c0 2.2 4.4 1 4.4 3.2 0 1-1 1.6-2.2 1.6s-2.2-.5-2.2-1.5" fill="none" stroke="#0d3d30" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+          <h3>Precios pensados para emprendimientos</h3>
+          <p>Presupuestos acordes a un negocio que recién empieza a crecer.</p>
+        </div>
+        <div class="value-item">
+          <span class="value-badge" style="background:var(--paper-alt);"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 2.5a6 6 0 0 0-6 6c0 2 .9 3.6 2 4.7l-.6 2.8 3-1.2c.5.1 1 .2 1.6.2a6 6 0 0 0 0-12z" fill="none" stroke="#5c6b72" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
+          <h3>Atención directa, sin intermediarios</h3>
+          <p>Hablás con la persona que diseña y construye tu sitio, siempre.</p>
+        </div>
+        <div class="value-item">
+          <span class="value-badge" style="background:var(--cian-tint);"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 2.5a5.5 5.5 0 0 1 5.5 5.5c0 3.2-1.4 6-3 7.5M9 2.5a5.5 5.5 0 0 0-5.5 5.5c0 1.6.3 2.9.8 4M9 5.5a4.5 4.5 0 0 1 4.5 4.5c0 2.2-.8 4-1.8 5.3M9 5.5a4.5 4.5 0 0 0-4.5 4.5c0 1.2.2 2.2.5 3.1M9 8.5a2 2 0 0 1 2 2c0 1.4-.5 2.6-1.1 3.5M9 8.5a2 2 0 0 0-2 2c0 .8.1 1.5.3 2.1" fill="none" stroke="var(--cian-deep)" stroke-width="1.1" stroke-linecap="round"/></svg></span>
+          <h3>Identidad propia</h3>
+          <p>Cada sitio se diseña para tu negocio — no salimos de un catálogo de plantillas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TRABAJOS -->
   <section id="trabajos">
     <div class="wrap">
@@ -1017,42 +1083,6 @@
             <h3>Estética — por confirmar</h3>
             <p>Propuesta y templates ya listos para un espacio de estética. A la espera de confirmación del cliente.</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VALORES -->
-  <section class="alt">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow mono">
-          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
-          por qué presencia.lab
-        </div>
-        <h2>Pensado para el que está empezando.</h2>
-      </div>
-
-      <div class="values">
-        <div class="value-item">
-          <span class="value-badge" style="background:var(--cian-tint);"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="none" stroke="var(--cian-deep)" stroke-width="1.4"/><ellipse cx="9" cy="9" rx="3" ry="7" fill="none" stroke="var(--cian-deep)" stroke-width="1.2"/><path d="M2 9h14" stroke="var(--cian-deep)" stroke-width="1.2"/></svg></span>
-          <h3>Dominio gratuito para arrancar</h3>
-          <p>No necesitás invertir en un dominio propio desde el día uno.</p>
-        </div>
-        <div class="value-item">
-          <span class="value-badge" style="background:#e2f5ee;"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="none" stroke="#0d3d30" stroke-width="1.4"/><path d="M9 5v8M11.2 6.8c0-1-1-1.5-2.2-1.5s-2.2 .6-2.2 1.6c0 2.2 4.4 1 4.4 3.2 0 1-1 1.6-2.2 1.6s-2.2-.5-2.2-1.5" fill="none" stroke="#0d3d30" stroke-width="1.2" stroke-linecap="round"/></svg></span>
-          <h3>Precios pensados para emprendimientos</h3>
-          <p>Presupuestos acordes a un negocio que recién empieza a crecer.</p>
-        </div>
-        <div class="value-item">
-          <span class="value-badge" style="background:var(--paper-alt);"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 2.5a6 6 0 0 0-6 6c0 2 .9 3.6 2 4.7l-.6 2.8 3-1.2c.5.1 1 .2 1.6.2a6 6 0 0 0 0-12z" fill="none" stroke="#5c6b72" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
-          <h3>Atención directa, sin intermediarios</h3>
-          <p>Hablás con la persona que diseña y construye tu sitio, siempre.</p>
-        </div>
-        <div class="value-item">
-          <span class="value-badge" style="background:var(--cian-tint);"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 2.5a5.5 5.5 0 0 1 5.5 5.5c0 3.2-1.4 6-3 7.5M9 2.5a5.5 5.5 0 0 0-5.5 5.5c0 1.6.3 2.9.8 4M9 5.5a4.5 4.5 0 0 1 4.5 4.5c0 2.2-.8 4-1.8 5.3M9 5.5a4.5 4.5 0 0 0-4.5 4.5c0 1.2.2 2.2.5 3.1M9 8.5a2 2 0 0 1 2 2c0 1.4-.5 2.6-1.1 3.5M9 8.5a2 2 0 0 0-2 2c0 .8.1 1.5.3 2.1" fill="none" stroke="var(--cian-deep)" stroke-width="1.1" stroke-linecap="round"/></svg></span>
-          <h3>Identidad propia</h3>
-          <p>Cada sitio se diseña para tu negocio — no salimos de un catálogo de plantillas.</p>
         </div>
       </div>
     </div>
