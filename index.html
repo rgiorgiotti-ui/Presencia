@@ -192,7 +192,7 @@
 
   /* ---------- HERO ---------- */
   .hero{
-    padding:96px 0 100px;
+    padding:64px 0 68px;
     position:relative;
     overflow:hidden;
   }
@@ -243,11 +243,11 @@
   }
 
   /* ---------- SECTION SHELLS ---------- */
-  section{padding:88px 0;}
+  section{padding:60px 0;}
   section.alt{background:var(--paper-alt);}
   .section-head{
     max-width:640px;
-    margin-bottom:52px;
+    margin-bottom:36px;
   }
   .section-head .eyebrow{margin-bottom:14px;}
   .section-head h2{
@@ -271,17 +271,56 @@
   .service-card{
     background:var(--paper);
     padding:36px;
+    position:relative;
+    overflow:hidden;
   }
   .service-card .mark{margin-bottom:20px;}
   .service-card h3{
     font-size:1.1rem;
     margin-bottom:10px;
+    max-width:80%;
   }
   .service-card p{
     color:var(--ink-soft);
     font-size:0.95rem;
     margin:0;
+    max-width:88%;
   }
+  .svc-vis{position:absolute; top:28px; right:28px; display:flex; align-items:center;}
+
+  @keyframes wa-pop{0%,50%{transform:scale(0.75);opacity:0.5}70%{transform:scale(1.08);opacity:1}85%,100%{transform:scale(1);opacity:1}}
+  .svc-chat{animation:wa-pop 2.4s ease-in-out infinite;}
+  .svc-phone{background:#fff; border:1px solid var(--line); border-radius:4px; padding:4px 8px; font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:var(--ink); margin-left:6px;}
+
+  .svc-badge{width:34px; height:34px; border-radius:5px; background:var(--cian-tint); display:flex; align-items:center; justify-content:center; margin-right:6px;}
+  .svc-square{width:40px; height:40px; border-radius:6px; background:var(--paper-alt); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
+
+  @keyframes tool-in{0%,6%{opacity:0; transform:translateY(5px);}16%,100%{opacity:1; transform:translateY(0);}}
+  @keyframes tool-in2{0%,16%{opacity:0; transform:translateY(5px);}26%,100%{opacity:1; transform:translateY(0);}}
+  @keyframes tool-form{0%,16%{opacity:0; transform:translateY(5px);}26%,64%{opacity:1; transform:translateY(0);}78%,100%{opacity:0.3; transform:translateY(0);}}
+  @keyframes tool-in3{0%,26%{opacity:0; transform:translateY(5px);}36%,100%{opacity:1; transform:translateY(0);}}
+  @keyframes tool-in4{0%,36%{opacity:0; transform:translateY(5px);}46%,100%{opacity:1; transform:translateY(0);}}
+  @keyframes tool-x{0%,50%{stroke-dashoffset:30;}64%,100%{stroke-dashoffset:0;}}
+  @keyframes tool-check{0%,68%{opacity:0; transform:translate(-50%,-50%) scale(0.5);}82%,100%{opacity:1; transform:translate(-50%,-50%) scale(1);}}
+  .tool-icon{position:relative; display:flex; flex-direction:column; align-items:center;}
+  .tool-icon:nth-child(1){animation:tool-in 3.8s infinite;}
+  .tool-icon:nth-child(2){animation:tool-form 3.8s infinite;}
+  .tool-icon:nth-child(3){animation:tool-in3 3.8s infinite;}
+  .tool-icon:nth-child(4){animation:tool-in4 3.8s infinite;}
+  .tool-x line{stroke:#d85a30; stroke-width:2; stroke-linecap:round; stroke-dasharray:30; animation:tool-x 3.8s infinite;}
+  .tool-check{position:absolute; top:50%; left:50%; width:20px; height:20px; border-radius:50%; background:var(--verde); opacity:0; transform:translate(-50%,-50%) scale(0.5); animation:tool-check 3.8s infinite; display:flex; align-items:center; justify-content:center;}
+
+  @keyframes dom-reveal{0%,4%{width:0;}42%,58%{width:100%;}96%,100%{width:100%;}}
+  @keyframes dom-bar{0%,48%{width:0;}72%,100%{width:100%;}}
+  @keyframes dom-app-out{0%,68%{opacity:1;}74%,100%{opacity:0;}}
+  @keyframes dom-com-in{0%,68%{opacity:0;}74%,100%{opacity:1;}}
+  .dom-box{font-family:'JetBrains Mono',monospace; font-size:0.62rem; background:#fff; border:1px solid var(--line); border-radius:4px; padding:4px 7px; white-space:nowrap; overflow:hidden; width:fit-content; color:var(--ink);}
+  .dom-reveal{display:inline-block; overflow:hidden; white-space:nowrap; width:0; vertical-align:bottom; animation:dom-reveal 4.2s infinite; border-right:1.5px solid var(--cian);}
+  .dom-suffix{position:relative; display:inline-block;}
+  .dom-suffix .app{animation:dom-app-out 4.2s infinite;}
+  .dom-suffix .com{position:absolute; left:0; top:0; animation:dom-com-in 4.2s infinite;}
+  .dom-bar{width:70px; height:2.5px; background:var(--line); border-radius:2px; margin-top:6px; overflow:hidden;}
+  .dom-bar-fill{height:100%; background:var(--verde); animation:dom-bar 4.2s infinite;}
 
   /* ---------- CÓMO TRABAJAMOS (dark showcase) ---------- */
   .work-method{
@@ -296,9 +335,9 @@
   .method-row{
     display:grid;
     grid-template-columns:0.85fr 1.15fr;
-    gap:56px;
+    gap:48px;
     align-items:center;
-    padding:56px 0;
+    padding:40px 0;
   }
   .method-row + .method-row{border-top:1px solid var(--line-dark);}
   .method-row.reverse{grid-template-columns:1.15fr 0.85fr;}
@@ -576,6 +615,7 @@
     gap:28px;
   }
   .value-item .mark{margin-bottom:16px;}
+  .value-badge{width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:16px;}
   .value-item h3{font-size:0.98rem; margin-bottom:8px;}
   .value-item p{color:var(--ink-soft); font-size:0.88rem; margin:0;}
 
@@ -655,6 +695,8 @@
     .hero-grid{grid-template-columns:1fr; text-align:left;}
     .hero-visual{order:-1; margin-bottom:12px; transform:scale(0.72); transform-origin:left center;}
     .services-grid{grid-template-columns:1fr;}
+    .svc-vis{position:static; margin-bottom:16px;}
+    .service-card h3, .service-card p{max-width:100%;}
     .method-row, .method-row.reverse{
       grid-template-columns:1fr;
       gap:26px;
@@ -669,7 +711,7 @@
     .values{grid-template-columns:repeat(2,1fr); row-gap:36px;}
     .contact-wrap{grid-template-columns:1fr; gap:44px;}
     .wrap{padding:0 22px;}
-    section{padding:64px 0;}
+    section{padding:44px 0;}
   }
 </style>
 </head>
@@ -753,26 +795,49 @@
 
       <div class="services-grid">
         <div class="service-card">
+          <div class="svc-vis">
+            <svg class="svc-chat" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2a8 8 0 0 0-7 12l-1 4 4-1a8 8 0 1 0 4-15z" fill="none" stroke="var(--verde)" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <span class="svc-phone">+54 9 11 2345‑6789</span>
+          </div>
           <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
           <h3>Sitios para emprendimientos</h3>
           <p>Landing pages y sitios de un producto o servicio, listos para compartir en redes y WhatsApp. Arrancás con dominio gratuito.</p>
         </div>
         <div class="service-card">
+          <div class="svc-vis">
+            <div class="svc-badge"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="5" r="2.6" fill="none" stroke="var(--cian-deep)" stroke-width="1.4"/><path d="M2.5 14c0-3 2.5-5 5.5-5s5.5 2 5.5 5" fill="none" stroke="var(--cian-deep)" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+            <svg width="12" height="12" viewBox="0 0 12 12" style="margin-right:6px;"><path d="M2 6h8M7 3l3 3-3 3" fill="none" stroke="var(--plata)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="svc-square"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.6" fill="none" stroke="var(--plata)" stroke-width="1.5"/><path d="M4 20c0-4 3.6-6.8 8-6.8s8 2.8 8 6.8" fill="none" stroke="var(--plata)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          </div>
           <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--verde)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--verde)"/></svg></span>
           <h3>Portfolios y sitios personales</h3>
           <p>Para profesionales, coaches y freelancers que necesitan un espacio propio más allá de un CV o un perfil de red social.</p>
         </div>
         <div class="service-card">
+          <div class="svc-vis" style="gap:9px; transform:scale(0.8); transform-origin:top right;">
+            <div class="tool-icon"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="13" rx="1.5" fill="none" stroke="var(--cian)" stroke-width="1.4"/><path d="M3 8h14M6.5 2.5v3M13.5 2.5v3" stroke="var(--cian)" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+            <div class="tool-icon"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="1.5" fill="none" stroke="var(--verde)" stroke-width="1.4"/><path d="M6 8h8M6 11h8M6 14h5" stroke="var(--verde)" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <svg class="tool-x" width="22" height="22" viewBox="0 0 22 22" style="position:absolute; top:-1px; left:-1px;"><line x1="4" y1="4" x2="18" y2="18"/><line x1="18" y1="4" x2="4" y2="18"/></svg>
+            </div>
+            <div class="tool-icon"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="2" y="4" width="16" height="12" rx="1.5" fill="none" stroke="var(--cian)" stroke-width="1.4"/><circle cx="7" cy="9" r="1.6" fill="none" stroke="var(--cian)" stroke-width="1.3"/><path d="M2 15l4.5-4 3 2.5L14 9l4 5" fill="none" stroke="var(--cian)" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+            <div class="tool-icon"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="2" y="3" width="16" height="14" rx="1.5" fill="none" stroke="var(--plata)" stroke-width="1.4"/><path d="M2 5l8 6 8-6" fill="none" stroke="var(--plata)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="tool-check"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2.5 6.5l2.5 2.5 4.5-5.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
           <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--plata)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--plata)"/></svg></span>
           <h3>Herramientas a medida</h3>
           <p>Calendarios, formularios y mini aplicaciones simples cuando tu negocio necesita algo más que una página estática.</p>
         </div>
         <div class="service-card">
+          <div class="svc-vis" style="flex-direction:column; align-items:flex-end;">
+            <div class="dom-box"><span class="dom-reveal">tunegocio<span class="dom-suffix"><span class="app">.app</span><span class="com">.com</span></span></span></div>
+            <div class="dom-bar"><div class="dom-bar-fill"></div></div>
+          </div>
           <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
           <h3>Migración y mantenimiento</h3>
           <p>Cuando estés listo, pasamos tu sitio a un dominio propio. Y si lo necesitás, lo mantenemos actualizado con el tiempo.</p>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -970,22 +1035,22 @@
 
       <div class="values">
         <div class="value-item">
-          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          <span class="value-badge" style="background:var(--cian-tint);"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="none" stroke="var(--cian-deep)" stroke-width="1.4"/><ellipse cx="9" cy="9" rx="3" ry="7" fill="none" stroke="var(--cian-deep)" stroke-width="1.2"/><path d="M2 9h14" stroke="var(--cian-deep)" stroke-width="1.2"/></svg></span>
           <h3>Dominio gratuito para arrancar</h3>
           <p>No necesitás invertir en un dominio propio desde el día uno.</p>
         </div>
         <div class="value-item">
-          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--verde)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--verde)"/></svg></span>
+          <span class="value-badge" style="background:#e2f5ee;"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="none" stroke="#0d3d30" stroke-width="1.4"/><path d="M9 5v8M11.2 6.8c0-1-1-1.5-2.2-1.5s-2.2 .6-2.2 1.6c0 2.2 4.4 1 4.4 3.2 0 1-1 1.6-2.2 1.6s-2.2-.5-2.2-1.5" fill="none" stroke="#0d3d30" stroke-width="1.2" stroke-linecap="round"/></svg></span>
           <h3>Precios pensados para emprendimientos</h3>
           <p>Presupuestos acordes a un negocio que recién empieza a crecer.</p>
         </div>
         <div class="value-item">
-          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--plata)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--plata)"/></svg></span>
+          <span class="value-badge" style="background:var(--paper-alt);"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 2.5a6 6 0 0 0-6 6c0 2 .9 3.6 2 4.7l-.6 2.8 3-1.2c.5.1 1 .2 1.6.2a6 6 0 0 0 0-12z" fill="none" stroke="#5c6b72" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
           <h3>Atención directa, sin intermediarios</h3>
           <p>Hablás con la persona que diseña y construye tu sitio, siempre.</p>
         </div>
         <div class="value-item">
-          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          <span class="value-badge" style="background:var(--cian-tint);"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 2.5a5.5 5.5 0 0 1 5.5 5.5c0 3.2-1.4 6-3 7.5M9 2.5a5.5 5.5 0 0 0-5.5 5.5c0 1.6.3 2.9.8 4M9 5.5a4.5 4.5 0 0 1 4.5 4.5c0 2.2-.8 4-1.8 5.3M9 5.5a4.5 4.5 0 0 0-4.5 4.5c0 1.2.2 2.2.5 3.1M9 8.5a2 2 0 0 1 2 2c0 1.4-.5 2.6-1.1 3.5M9 8.5a2 2 0 0 0-2 2c0 .8.1 1.5.3 2.1" fill="none" stroke="var(--cian-deep)" stroke-width="1.1" stroke-linecap="round"/></svg></span>
           <h3>Identidad propia</h3>
           <p>Cada sitio se diseña para tu negocio — no salimos de un catálogo de plantillas.</p>
         </div>
@@ -1015,7 +1080,7 @@
           </a>
           <div class="channel">
             <span class="mono">ubicación</span>
-            <strong>Argentina — trabajo para todo el país</strong>
+            <strong>Donde estés, ahí estamos — trabajo 100% remoto</strong>
           </div>
         </div>
       </div>
