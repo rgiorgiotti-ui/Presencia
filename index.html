@@ -370,13 +370,13 @@
   .tpl-card .tpl-line{height:5px; border-radius:2px; background:#e4e9ea;}
   .tpl-card .tpl-line.w60{width:60%;}
   .tpl-card .tpl-line.w80{width:80%;}
-  .tpl-card .tpl-img{flex:1; border-radius:3px; background:#eef2f2;}
+  .tpl-card .tpl-img{flex:1; border-radius:3px; background-color:#eef2f2; background-size:cover; background-position:center;}
   .tpl-card.c1 .tpl-head{background:var(--cian);}
   .tpl-card.c2 .tpl-head{background:var(--verde);}
   .tpl-card.c3 .tpl-head{background:var(--plata);}
-  .tpl-card.c1 .tpl-img{background:var(--cian-tint);}
-  .tpl-card.c2 .tpl-img{background:#e2f5ee;}
-  .tpl-card.c3 .tpl-img{background:#eef1f2;}
+  .tpl-card.c1 .tpl-img{background-color:var(--cian-tint);}
+  .tpl-card.c2 .tpl-img{background-color:#e2f5ee;}
+  .tpl-card.c3 .tpl-img{background-color:#eef1f2;}
 
   /* --- Demo 2: annotate & move --- */
   .adjust-screen{padding:26px 24px;}
@@ -805,15 +805,15 @@
             <div class="device-bar"><i></i><i></i><i></i></div>
             <div class="device-screen">
               <div class="tpl-track">
-                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img"></div></div>
-                <div class="tpl-card c2"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img"></div></div>
-                <div class="tpl-card c3"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img"></div></div>
-                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img"></div></div>
+                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img" style="background-image:url('assets/images/site/templates/template-1.jpg')"></div></div>
+                <div class="tpl-card c2"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img" style="background-image:url('assets/images/site/templates/template-2.jpg')"></div></div>
+                <div class="tpl-card c3"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img" style="background-image:url('assets/images/site/templates/template-3.jpg')"></div></div>
+                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img" style="background-image:url('assets/images/site/templates/template-4.jpg')"></div></div>
                 <!-- duplicated set for seamless loop -->
-                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img"></div></div>
-                <div class="tpl-card c2"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img"></div></div>
-                <div class="tpl-card c3"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img"></div></div>
-                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img"></div></div>
+                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img" style="background-image:url('assets/images/site/templates/template-1.jpg')"></div></div>
+                <div class="tpl-card c2"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img" style="background-image:url('assets/images/site/templates/template-2.jpg')"></div></div>
+                <div class="tpl-card c3"><div class="tpl-head"></div><div class="tpl-line w80"></div><div class="tpl-line w60"></div><div class="tpl-img" style="background-image:url('assets/images/site/templates/template-3.jpg')"></div></div>
+                <div class="tpl-card c1"><div class="tpl-head"></div><div class="tpl-line w60"></div><div class="tpl-line w80"></div><div class="tpl-img" style="background-image:url('assets/images/site/templates/template-4.jpg')"></div></div>
               </div>
             </div>
           </div>
@@ -856,15 +856,15 @@
         </div>
       </div>
 
-      <!-- ROW 3: cliente navegando y comprando -->
+      <!-- ROW 3: cliente consultando y pidiendo cotización -->
       <div class="method-row">
         <div class="method-copy">
           <span class="mono step-label">órbita 03 — presencia activa</span>
-          <h3>Tu cliente entra, encuentra y compra.</h3>
-          <p>El objetivo nunca es "tener un sitio lindo" — es que la persona del otro lado encuentre lo que busca y haga clic en comprar o escribirte, sin fricción.</p>
+          <h3>Tu cliente encuentra lo que busca y te escribe.</h3>
+          <p>No siempre es una compra directa: la mayoría de las veces es alguien pidiendo un presupuesto, una cotización o simplemente más información. El sitio está pensado para que ese contacto sea fácil, sin pasos de más.</p>
           <ul class="method-list">
-            <li>Botones de compra y contacto siempre a la vista</li>
-            <li>Pensado para que se navegue con el pulgar</li>
+            <li>Botón de contacto o cotización siempre visible</li>
+            <li>Pensado para navegarse con el celular en la mano</li>
             <li>Dominio gratuito al lanzar, propio cuando quieras</li>
           </ul>
         </div>
@@ -875,23 +875,24 @@
               <div class="shop-top">
                 <div class="shop-logo"></div>
                 <div class="cart-wrap">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 3h2l1.6 9.2a1.5 1.5 0 0 0 1.5 1.3h6a1.5 1.5 0 0 0 1.5-1.2L16 6H5" stroke="#33454a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="16" r="1" fill="#33454a"/><circle cx="13.5" cy="16" r="1" fill="#33454a"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2.5 5l6.5 4.6L15.5 5" stroke="#33454a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="4" width="14" height="10" rx="1.4" stroke="#33454a" stroke-width="1.3"/></svg>
                   <span class="cart-badge">1</span>
                 </div>
               </div>
               <div class="shop-grid">
-                <div class="shop-card target"><div class="shop-img"></div><div class="shop-line"></div><div class="shop-price"></div><div class="buy-btn clicked">comprar<span class="ripple"></span></div></div>
+                <div class="shop-card target"><div class="shop-img"></div><div class="shop-line"></div><div class="shop-price"></div><div class="buy-btn clicked">cotizar<span class="ripple"></span></div></div>
                 <div class="shop-card"><div class="shop-img"></div><div class="shop-line"></div><div class="shop-price"></div></div>
                 <div class="shop-card"><div class="shop-img"></div><div class="shop-line"></div><div class="shop-price"></div></div>
               </div>
               <div class="cursor-dot">
                 <svg width="16" height="18" viewBox="0 0 16 18"><path d="M1 1l13 6.5-5.5 1.5L7 15z" fill="#10171b" stroke="#fff" stroke-width="1"/></svg>
               </div>
-              <div class="toast">✓ pedido confirmado</div>
+              <div class="toast">✓ consulta enviada</div>
             </div>
           </div>
         </div>
       </div>
+
 
     </div>
   </section>
@@ -910,7 +911,7 @@
 
       <div class="work-grid">
         <a href="https://renderazo.netlify.app/" target="_blank" rel="noopener" class="work-card">
-          <div class="work-thumb">
+          <div class="work-thumb" style="background-image:url('assets/images/portfolio/renderazo.jpg'), linear-gradient(135deg, var(--ink) 0%, #23343a 100%); background-size:cover, cover; background-position:center, center;">
             <span class="mono">X:00.0 Y:00.0 Z:00.0</span>
           </div>
           <div class="work-body">
@@ -921,7 +922,7 @@
         </a>
 
         <a href="https://rominag-phi-tawny-27.vercel.app/" target="_blank" rel="noopener" class="work-card">
-          <div class="work-thumb plata-bg">
+          <div class="work-thumb" style="background-image:url('assets/images/portfolio/rominag.jpg'), linear-gradient(135deg,#5c6b72 0%, #8c9aa0 100%); background-size:cover, cover; background-position:center, center;">
             <span class="mono">la persona detrás del CV</span>
           </div>
           <div class="work-body">
@@ -932,7 +933,7 @@
         </a>
 
         <a href="https://rgiorgiotti-ui.github.io/coaching-calendar/" target="_blank" rel="noopener" class="work-card">
-          <div class="work-thumb verde-bg">
+          <div class="work-thumb" style="background-image:url('assets/images/portfolio/coachingsync.jpg'), linear-gradient(135deg,#0d3d30 0%, #1e9e74 100%); background-size:cover, cover; background-position:center, center;">
             <span class="mono">coachingsync®</span>
           </div>
           <div class="work-body">
@@ -1001,7 +1002,7 @@
           contacto
         </div>
         <h2>Hablemos de tu proyecto.</h2>
-        <p>Contame en qué andás y en qué etapa está tu negocio. En un par de días te paso una propuesta simple, sin letra chica.</p>
+        <p>Contame brevemente en qué consiste tu proyecto y en qué etapa está tu negocio. En pocos días te acerco una propuesta clara, con costos y alcance definidos desde el principio.</p>
 
         <div class="contact-channels">
           <a href="https://wa.me/5490000000000" class="channel" target="_blank" rel="noopener">
