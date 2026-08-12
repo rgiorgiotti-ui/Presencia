@@ -292,10 +292,10 @@
     margin:0;
     max-width:100%;
   }
-  .svc-vis{position:static; display:flex; align-items:center; margin-bottom:16px; min-height:34px;}
+  .svc-vis{position:static; display:flex; align-items:center; height:70px; margin-bottom:14px;}
 
   @keyframes wa-pop{0%,50%{transform:scale(0.85);opacity:0.6}70%{transform:scale(1.08);opacity:1}85%,100%{transform:scale(1);opacity:1}}
-  .svc-chat-bg{width:30px; height:30px; border-radius:50%; background:#e2f5ee; display:flex; align-items:center; justify-content:center; flex-shrink:0; animation:wa-pop 2.4s ease-in-out infinite;}
+  .svc-chat-bg{width:38px; height:38px; border-radius:50%; background:#e2f5ee; display:flex; align-items:center; justify-content:center; flex-shrink:0; animation:wa-pop 2.4s ease-in-out infinite;}
   .svc-phone{background:#fff; border:1px solid var(--line); border-radius:4px; padding:4px 7px; font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--ink); margin-left:7px; white-space:nowrap; overflow:hidden; width:fit-content;}
   @keyframes phone-reveal{0%,4%{width:0;}42%,58%{width:100%;}96%,100%{width:100%;}}
   .svc-phone span{display:inline-block; overflow:hidden; white-space:nowrap; width:0; vertical-align:bottom; animation:phone-reveal 4.2s infinite; border-right:1.5px solid var(--verde);}
@@ -303,9 +303,9 @@
   @keyframes badge-in{0%,4%{opacity:0; transform:translateY(4px);}14%,100%{opacity:1; transform:translateY(0);}}
   @keyframes arrow-in{0%,14%{opacity:0;}24%,100%{opacity:1;}}
   @keyframes person-in{0%,24%{opacity:0; transform:scale(0.85);}38%,100%{opacity:1; transform:scale(1);}}
-  .svc-badge{width:30px; height:30px; border-radius:5px; background:var(--cian-tint); display:flex; align-items:center; justify-content:center; margin-right:6px; flex-shrink:0; animation:badge-in 4s infinite;}
-  .svc-arrow{margin-right:6px; flex-shrink:0; animation:arrow-in 4s infinite;}
-  .svc-square{width:34px; height:34px; border-radius:6px; background:var(--paper-alt); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; flex-shrink:0; animation:person-in 4s infinite;}
+  .svc-badge{width:38px; height:38px; border-radius:5px; background:var(--cian-tint); display:flex; align-items:center; justify-content:center; margin-right:8px; flex-shrink:0; animation:badge-in 4s infinite;}
+  .svc-arrow{margin-right:8px; flex-shrink:0; animation:arrow-in 4s infinite;}
+  .svc-square{width:48px; height:48px; border-radius:6px; background:var(--paper-alt); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; flex-shrink:0; animation:person-in 4s infinite;}
 
   @keyframes tool-in{0%,6%{opacity:0; transform:translateY(5px);}16%,100%{opacity:1; transform:translateY(0);}}
   @keyframes tool-form{0%,16%{opacity:0; transform:translateY(5px);}26%,64%{opacity:1; transform:translateY(0);}78%,100%{opacity:0.3; transform:translateY(0);}}
@@ -313,7 +313,7 @@
   @keyframes tool-in4{0%,36%{opacity:0; transform:translateY(5px);}46%,100%{opacity:1; transform:translateY(0);}}
   @keyframes tool-x{0%,50%{stroke-dashoffset:30;}64%,100%{stroke-dashoffset:0;}}
   @keyframes tool-check{0%,68%{opacity:0; transform:translate(-50%,-50%) scale(0.5);}82%,100%{opacity:1; transform:translate(-50%,-50%) scale(1);}}
-  .tool-row{display:flex; align-items:flex-start; gap:8px;}
+  .tool-row{display:flex; align-items:center; gap:10px;}
   .tool-icon{position:relative; display:flex; flex-direction:column; align-items:center;}
   .tool-icon:nth-child(1){animation:tool-in 3.8s infinite;}
   .tool-icon:nth-child(2){animation:tool-form 3.8s infinite;}
@@ -326,7 +326,7 @@
   @keyframes dom-bar{0%,48%{width:0;}72%,100%{width:100%;}}
   @keyframes dom-app-out{0%,68%{opacity:1;}74%,100%{opacity:0;}}
   @keyframes dom-com-in{0%,68%{opacity:0;}74%,100%{opacity:1;}}
-  .dom-box{font-family:'JetBrains Mono',monospace; font-size:0.6rem; background:#fff; border:1px solid var(--line); border-radius:4px; padding:4px 7px; white-space:nowrap; overflow:hidden; width:fit-content; color:var(--ink);}
+  .dom-box{font-family:'JetBrains Mono',monospace; font-size:0.72rem; background:#fff; border:1px solid var(--line); border-radius:4px; padding:6px 9px; white-space:nowrap; overflow:hidden; width:fit-content; color:var(--ink);}
   .dom-reveal{display:inline-block; overflow:hidden; white-space:nowrap; width:0; vertical-align:bottom; animation:dom-reveal 4.2s infinite; border-right:1.5px solid var(--cian);}
   .dom-suffix{position:relative; display:inline-block;}
   .dom-suffix .app{animation:dom-app-out 4.2s infinite;}
@@ -674,10 +674,36 @@
   .field textarea{resize:vertical; min-height:110px;}
   form .cta-btn{align-self:flex-start; margin-top:6px;}
 
+  /* ---------- CONTACTO (dark) ---------- */
+  .hero-divider-dark{background:var(--ink);}
+  .contacto-dark{
+    background:var(--ink);
+    background-image:radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size:24px 24px;
+    color:var(--on-dark);
+  }
+  .contacto-dark .contact-copy h2{color:var(--on-dark);}
+  .contacto-dark .eyebrow{color:#4fd0d6;}
+  .contacto-dark .contact-copy p{color:var(--on-dark-soft);}
+  .contacto-dark .channel{color:var(--on-dark);}
+  .contacto-dark .channel .mono{color:var(--on-dark-soft);}
+  .contacto-dark .channel:hover strong{color:#4fd0d6;}
+  .contacto-dark .field label{color:var(--on-dark-soft);}
+  .contacto-dark .field input, .contacto-dark .field textarea{
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--line-dark);
+    color:var(--on-dark);
+  }
+  .contacto-dark .field input:focus, .contacto-dark .field textarea:focus{border-color:#4fd0d6;}
+  .contacto-dark .field input::placeholder, .contacto-dark .field textarea::placeholder{color:var(--on-dark-soft);}
+  .cta-btn-accent{background:#0f7c82;}
+  .cta-btn-accent:hover{background:#4fd0d6; color:var(--ink) !important;}
+
   /* ---------- FOOTER ---------- */
   footer{
-    border-top:1px solid var(--line);
+    border-top:1px solid var(--line-dark);
     padding:36px 0;
+    background:var(--ink);
   }
   .footer-row{
     display:flex;
@@ -686,7 +712,8 @@
     flex-wrap:wrap;
     gap:16px;
   }
-  .footer-row .mono{color:var(--plata);}
+  .footer-row .mono{color:var(--on-dark-soft);}
+
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 1040px){
@@ -834,9 +861,9 @@
         </div>
         <div class="service-card">
           <div class="svc-vis">
-            <div class="svc-badge"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.3" fill="none" stroke="var(--cian-deep)" stroke-width="1.3"/><circle cx="6" cy="7" r="1.4" fill="none" stroke="var(--cian-deep)" stroke-width="1.1"/><path d="M3.5 11c.4-1.4 1.4-2 2.5-2s2.1.6 2.5 2M9.5 6h3M9.5 8.5h3" stroke="var(--cian-deep)" stroke-width="1.1" stroke-linecap="round"/></svg></div>
-            <svg class="svc-arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M2 6h8M7 3l3 3-3 3" fill="none" stroke="var(--plata)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div class="svc-square"><svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="8" r="3.2" fill="none" stroke="var(--plata)" stroke-width="1.5"/><path d="M3.5 17c0-3.6 3-6 6.5-6s6.5 2.4 6.5 6" fill="none" stroke="var(--plata)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <div class="svc-badge"><svg width="20" height="20" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.3" fill="none" stroke="var(--cian-deep)" stroke-width="1.3"/><circle cx="6" cy="7" r="1.4" fill="none" stroke="var(--cian-deep)" stroke-width="1.1"/><path d="M3.5 11c.4-1.4 1.4-2 2.5-2s2.1.6 2.5 2M9.5 6h3M9.5 8.5h3" stroke="var(--cian-deep)" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+            <svg class="svc-arrow" width="14" height="14" viewBox="0 0 12 12"><path d="M2 6h8M7 3l3 3-3 3" fill="none" stroke="var(--plata)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="svc-square"><svg width="26" height="26" viewBox="0 0 20 20"><circle cx="10" cy="8" r="3.2" fill="none" stroke="var(--plata)" stroke-width="1.5"/><path d="M3.5 17c0-3.6 3-6 6.5-6s6.5 2.4 6.5 6" fill="none" stroke="var(--plata)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
           </div>
           <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--verde)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--verde)"/></svg></span>
           <h3>Portfolios y sitios personales</h3>
@@ -1088,12 +1115,25 @@
     </div>
   </section>
 
+  <!-- TRANSICIÓN -->
+  <div class="hero-divider hero-divider-dark">
+    <svg width="220" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="0" y1="20" x2="88" y2="20" stroke="var(--line)" stroke-width="1"/>
+      <line x1="132" y1="20" x2="220" y2="20" stroke="var(--line)" stroke-width="1"/>
+      <circle cx="110" cy="20" r="14" stroke="var(--line)" stroke-width="1.3" fill="none"/>
+      <circle cx="110" cy="20" r="5" fill="var(--verde)"/>
+      <g class="orbit-dot-anim" style="transform-origin:110px 20px; animation-duration:8s; animation-direction:reverse;">
+        <circle cx="110" cy="6" r="2.4" fill="var(--verde)"/>
+      </g>
+    </svg>
+  </div>
+
   <!-- CONTACTO -->
-  <section id="contacto">
+  <section id="contacto" class="contacto-dark">
     <div class="wrap contact-wrap">
       <div class="contact-copy">
         <div class="eyebrow mono">
-          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="var(--cian)" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="var(--cian)"/></svg></span>
+          <span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="#4fd0d6" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2.4" fill="#4fd0d6"/></svg></span>
           contacto
         </div>
         <h2>Hablemos de tu proyecto.</h2>
@@ -1128,10 +1168,11 @@
           <label for="message">Contame sobre tu proyecto</label>
           <textarea id="message" name="message" required></textarea>
         </div>
-        <button type="submit" class="cta-btn">Enviar consulta →</button>
+        <button type="submit" class="cta-btn cta-btn-accent">Enviar consulta →</button>
       </form>
     </div>
   </section>
+
 
 </main>
 
